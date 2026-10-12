@@ -8,7 +8,8 @@ import { entranceAnimations } from "@/libs/animations/entranceAnimation";
 import { hoverAnimations } from "@/libs/animations/hoverAnimation";
 
 interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+  extends
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
   onClick?: () => void;
@@ -45,7 +46,7 @@ const buttonVariants = cva(
       variant: "primary",
       size: "default",
     },
-  }
+  },
 );
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -59,7 +60,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       hoverAnimation = "jiggle",
       ...props
     },
-    ref
+    ref,
   ) => {
     const Comp = asChild ? Slot : "button";
 
@@ -115,7 +116,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       />
     );
-  }
+  },
 );
 Button.displayName = "Button";
 export { Button, buttonVariants };
